@@ -4,7 +4,7 @@ const chatList = document.querySelector(".chat-list");
 let userMessage = null;
 
 // API configuration
-const API_KEY = "AIzaSyBE9xH8ZiEG4d40YB6FWu1rm9PHjTCHfGs";
+const API_KEY = "AIzaSyBRt1FmMBMjH2BObRrnUx_EjJlgy656f78";
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=GEMINI_API_KEY`;
 
 // create a new message element and return it
@@ -33,7 +33,8 @@ const generateAPIResponse = async () => {
 
    const data = await response.json();
 
-   console.log(data);
+   const apiResponse = data?.candidates[0].content.parts[0].text;
+   console.log(apiResponse);
   } catch (error){
      console.log(error);
   }
